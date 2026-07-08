@@ -80,3 +80,19 @@ export default function RootLayout({
     </html>
   )
 }
+
+export const metadata = {
+  title: 'CyM',
+  description: 'Clear the little things, so your Mind can rest.',
+  openGraph: {
+    title: 'CyM',
+    description: 'Clear the little things, so your Mind can rest.',
+    images: ['/og-image.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CyM',
+    description: 'Clear the little things, so your Mind can rest.',
+    images: ['/og-image.png'],
+  },
+}
