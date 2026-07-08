@@ -31,7 +31,7 @@ const notoSansTC = Noto_Sans_TC({
   variable: '--font-noto-tc',
 })
 
-export const metadata: Metadata {
+export const metadata: Metadata = {
   title: 'CyM',
   description: 'Clear the little things, so your Mind can rest.',
   openGraph: {
