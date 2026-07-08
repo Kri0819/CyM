@@ -6,6 +6,7 @@ import { Hero } from '@/components/hero'
 import { WorksSection } from '@/components/works-section'
 import { AboutSection } from '@/components/about-section'
 import { SupportSection } from '@/components/support-section'
+import { SiteFooter } from '@/components/site-footer'
 
 type PageView = 'home' | 'works' | 'about' | 'support'
 
@@ -101,6 +102,7 @@ export function HomePage() {
           <SupportSection />
         </div>
       </div>
+      <SiteFooter />
     </main>
   )
 }
