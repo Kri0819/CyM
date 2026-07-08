@@ -31,6 +31,31 @@ const notoSansTC = Noto_Sans_TC({
   variable: '--font-noto-tc',
 })
 
+export const metadata: Metadata {
+  title: 'CyM',
+  description: 'Clear the little things, so your Mind can rest.',
+  openGraph: {
+    title: 'CyM',
+    description: 'Clear the little things, so your Mind can rest.',
+    images: ['/og-image.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CyM',
+    description: 'Clear the little things, so your Mind can rest.',
+    images: ['/og-image.png'],
+  },
+  icons: {
+    icon: [
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+}
+
 export const viewport: Viewport = {
   colorScheme: 'light dark',
   themeColor: [
@@ -55,32 +80,4 @@ export default function RootLayout({
       </body>
     </html>
   )
-}
-
-export const metadata = {
-  title: 'CyM',
-  description: 'Clear the little things, so your Mind can rest.',
-  openGraph: {
-    title: 'CyM',
-    description: 'Clear the little things, so your Mind can rest.',
-    images: ['/og-image.png'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'CyM',
-    description: 'Clear the little things, so your Mind can rest.',
-    images: ['/og-image.png'],
-  },
-}
-
-export const metadata = {
-  icons: {
-    icon: [
-      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-  },
 }
