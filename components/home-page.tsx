@@ -39,7 +39,7 @@ export function HomePage() {
   const isHome = view === 'home'
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background">
+    <main className="relative flex h-screen flex-col overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-24 left-1/2 h-[500px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,var(--ice)_0%,transparent_70%)] opacity-60 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-[420px] w-[520px] rounded-full bg-[radial-gradient(ellipse,var(--lavender)_0%,transparent_70%)] opacity-50 blur-3xl" />
@@ -53,7 +53,7 @@ export function HomePage() {
         onSupport={handleSupport}
       />
 
-      <div className="relative h-[calc(100svh-72px)] overflow-hidden bg-[linear-gradient(180deg,var(--ice)_0%,var(--background)_38%,var(--background)_100%)] sm:h-[calc(100vh-86px)]">
+      <div className="relative min-h-0 flex-1 overflow-hidden bg-[linear-gradient(180deg,var(--ice)_0%,var(--background)_38%,var(--background)_100%)]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,var(--crystal-soft)_0%,transparent_70%)] opacity-25 blur-3xl"
@@ -66,26 +66,26 @@ export function HomePage() {
               : 'z-0 -translate-y-full pointer-events-none'
           }`}
         >
-           <Hero onExplore={handleExplore} onAbout={handleAbout} />
+          <Hero onExplore={handleExplore} onAbout={handleAbout} />
         </div>
 
         <div
-  ref={worksScrollRef}
-  className={`absolute inset-0 overflow-y-auto overscroll-contain transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
-    view === 'works'
-      ? 'z-20 translate-y-0 pointer-events-auto'
-      : 'z-0 translate-y-full pointer-events-none'
-  }`}
->
+          ref={worksScrollRef}
+          className={`absolute inset-0 overflow-y-auto overscroll-contain transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+            view === 'works'
+              ? 'z-20 translate-y-0 pointer-events-auto'
+              : 'z-0 translate-y-full pointer-events-none'
+          }`}
+        >
           <WorksSection />
         </div>
 
         <div
           ref={aboutScrollRef}
-          className={`absolute inset-0 z-10 overflow-y-auto overscroll-contain transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+          className={`absolute inset-0 overflow-y-auto overscroll-contain transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
             view === 'about'
-  ? 'z-20 translate-y-0 pointer-events-auto'
-  : 'z-0 translate-y-full pointer-events-none'
+              ? 'z-20 translate-y-0 pointer-events-auto'
+              : 'z-0 translate-y-full pointer-events-none'
           }`}
         >
           <AboutSection />
@@ -93,16 +93,17 @@ export function HomePage() {
 
         <div
           ref={supportScrollRef}
-          className={`absolute inset-0 z-10 overflow-y-auto overscroll-contain transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+          className={`absolute inset-0 overflow-y-auto overscroll-contain transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
             view === 'support'
-  ? 'z-20 translate-y-0 pointer-events-auto'
-  : 'z-0 translate-y-full pointer-events-none'
+              ? 'z-20 translate-y-0 pointer-events-auto'
+              : 'z-0 translate-y-full pointer-events-none'
           }`}
         >
           <SupportSection />
         </div>
       </div>
-      <SiteFooter />
+
+      <SiteFooter onSupport={handleSupport} />
     </main>
   )
 }
