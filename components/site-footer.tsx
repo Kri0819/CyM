@@ -4,7 +4,7 @@ type SiteFooterProps = {
 
 export function SiteFooter({ onSupport }: SiteFooterProps) {
   return (
-    <footer className="shrink-0 bg-background/88 backdrop-blur-xl">
+    <footer className="shrink-0 bg-background">
       <div className="mx-auto flex h-[76px] max-w-6xl items-center justify-between gap-6 px-6 text-sm text-muted-foreground">
         <div className="min-w-0">
           <p className="font-serif text-base leading-none text-foreground">

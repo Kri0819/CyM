@@ -1,0 +1,21 @@
+# CyM v0.0.4｜Fixed Home View Shell
+
+這包只包含本次更新檔案，不包含整個專案。
+
+## 版本資訊
+- 版本編號：v0.0.4
+- 版本名稱：Fixed Home View Shell
+- 版本說明：
+  - 修正首頁整頁捲動問題。
+  - Header / 中央內容 / Footer 改成固定三層結構。
+  - Home 頁本身不捲動。
+  - Works / About / Support 仍保留自己的內容區捲動。
+  - Footer 的「聯絡 / 回報問題」會切到 Support，不開新視窗。
+  - 移除 HomePage 中 about/support wrapper 多餘的固定 z-10，避免層級混亂。
+
+## 包含檔案
+- components/home-page.tsx
+- components/site-footer.tsx
+
+## 使用方式
+把 ZIP 裡的檔案覆蓋到專案同路徑即可。

@@ -39,7 +39,7 @@ export function HomePage() {
   const isHome = view === 'home'
 
   return (
-    <main className="relative flex h-screen flex-col overflow-hidden bg-background">
+    <main className="relative flex h-dvh flex-col overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-24 left-1/2 h-[500px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,var(--ice)_0%,transparent_70%)] opacity-60 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-[420px] w-[520px] rounded-full bg-[radial-gradient(ellipse,var(--lavender)_0%,transparent_70%)] opacity-50 blur-3xl" />
