@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { SiteHeader } from '@/components/site-header'
 import { Hero } from '@/components/hero'
 import { WorksSection } from '@/components/works-section'
@@ -15,6 +15,35 @@ export function HomePage() {
   const worksScrollRef = useRef<HTMLElement | null>(null)
   const aboutScrollRef = useRef<HTMLElement | null>(null)
   const supportScrollRef = useRef<HTMLElement | null>(null)
+
+  const heroViewportRef = useRef<HTMLDivElement | null>(null)
+  const heroContentRef = useRef<HTMLDivElement | null>(null)
+  const [heroScale, setHeroScale] = useState(1)
+
+  useEffect(() => {
+    const viewport = heroViewportRef.current
+    const content = heroContentRef.current
+    if (!viewport || !content) return
+
+    function recalcScale() {
+      if (!viewport || !content) return
+      const viewportHeight = viewport.clientHeight
+      const contentHeight = content.scrollHeight
+      const nextScale =
+        viewportHeight > 0 && contentHeight > 0
+          ? Math.min(1, viewportHeight / contentHeight)
+          : 1
+      setHeroScale(nextScale)
+    }
+
+    recalcScale()
+
+    const resizeObserver = new ResizeObserver(recalcScale)
+    resizeObserver.observe(viewport)
+    resizeObserver.observe(content)
+
+    return () => resizeObserver.disconnect()
+  }, [])
 
   function handleHome() {
     setView('home')
@@ -66,7 +95,21 @@ export function HomePage() {
               : 'z-0 -translate-y-full pointer-events-none'
           }`}
         >
-          <Hero onExplore={handleExplore} onAbout={handleAbout} />
+          <div
+            ref={heroViewportRef}
+            className="flex h-full w-full items-center justify-center overflow-hidden"
+          >
+            <div
+              ref={heroContentRef}
+              className="w-full"
+              style={{
+                transform: `scale(${heroScale})`,
+                transformOrigin: 'center center',
+              }}
+            >
+              <Hero onExplore={handleExplore} onAbout={handleAbout} />
+            </div>
+          </div>
         </div>
 
         <div
