@@ -7,13 +7,13 @@ type HeroProps = {
 
 export function Hero({ onExplore, onAbout  }: HeroProps) {
   return (
-    <section className="cym-noise relative overflow-hidden">
+    <section className="cym-noise relative h-full overflow-y-auto overscroll-contain">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,var(--ice)_0%,transparent_42%)] opacity-70"
       />
 
- <div className="relative mx-auto min-h-[calc(100svh-86px)] max-w-6xl px-6 pb-10 pt-10 sm:pb-24 sm:pt-20">
+ <div className="relative mx-auto min-h-full max-w-6xl px-6 pb-10 pt-10 sm:pb-24 sm:pt-20">
         <FragmentScatter />
 
         <div className="relative z-10 mx-auto flex max-w-[340px] flex-col items-center text-center py-10 sm:max-w-2xl sm:py-14 lg:pt-32 lg:pb-24 xl:pt-48 xl:pb-36">
