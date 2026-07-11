@@ -31,7 +31,7 @@ export function HomePage() {
       const contentHeight = content.scrollHeight
       const nextScale =
         viewportHeight > 0 && contentHeight > 0
-          ? Math.min(1, viewportHeight / contentHeight)
+          ? Math.min(1, Math.max(0.78, viewportHeight / contentHeight))
           : 1
       setHeroScale(nextScale)
     }

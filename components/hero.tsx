@@ -16,7 +16,7 @@ export function Hero({ onExplore, onAbout  }: HeroProps) {
  <div className="relative mx-auto max-w-6xl px-6 pb-10 pt-10 sm:pb-24 sm:pt-20">
         <FragmentScatter />
 
-        <div className="relative z-10 mx-auto flex max-w-[340px] flex-col items-center text-center py-10 sm:max-w-2xl sm:py-14 lg:pt-32 lg:pb-24 xl:pt-48 xl:pb-36">
+        <div className="relative z-10 mx-auto flex max-w-[340px] flex-col items-center text-center py-10 sm:max-w-2xl sm:py-14 lg:py-16 xl:py-20">
   <div
     aria-hidden="true"
     className="pointer-events-none absolute -inset-x-16 -inset-y-10 -z-10 rounded-full bg-[radial-gradient(ellipse,rgba(255,255,255,0.88)_0%,rgba(255,255,255,0.62)_42%,transparent_72%)] blur-2xl"
