@@ -1,15 +1,18 @@
+import type { Ref } from 'react'
 import { SecondaryPage, cymCardClassName } from '@/components/secondary-page'
 
 type AboutSectionProps = {
   onSupport?: () => void
+  scrollRef?: Ref<HTMLElement>
 }
 
-export function AboutSection({ onSupport }: AboutSectionProps) {
+export function AboutSection({ onSupport, scrollRef }: AboutSectionProps) {
   return (
     <SecondaryPage
   id="about"
   label="About"
   onSupport={onSupport}
+  scrollRef={scrollRef}
   title={
     <>
       <span className="block">Built from the small things</span>

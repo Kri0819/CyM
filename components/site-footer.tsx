@@ -5,7 +5,7 @@ type SiteFooterProps = {
 export function SiteFooter({ onSupport }: SiteFooterProps) {
   return (
     <footer className="shrink-0 bg-background">
-      <div className="mx-auto flex h-[76px] max-w-6xl items-center justify-center px-6 text-sm text-muted-foreground">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-6 py-5 text-sm text-muted-foreground">
         <nav className="font-tc flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs">
           <a
             href="/terms"
@@ -28,11 +28,11 @@ export function SiteFooter({ onSupport }: SiteFooterProps) {
           >
             聯絡 / 回報問題
           </button>
-
-          <span className="text-muted-foreground/60">
-            © {new Date().getFullYear()} CyM. All rights reserved.
-          </span>
         </nav>
+
+        <span className="text-xs text-muted-foreground/60">
+          © {new Date().getFullYear()} CyM. All rights reserved.
+        </span>
       </div>
     </footer>
   )

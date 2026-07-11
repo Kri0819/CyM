@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactNode, Ref } from 'react'
 import { SiteFooter } from '@/components/site-footer'
 
 type SecondaryPageProps = {
@@ -8,6 +8,7 @@ type SecondaryPageProps = {
   description: ReactNode
   children: ReactNode
   onSupport?: () => void
+  scrollRef?: Ref<HTMLElement>
 }
 
 export const cymCardClassName =
@@ -20,10 +21,12 @@ export function SecondaryPage({
   description,
   children,
   onSupport,
+  scrollRef,
 }: SecondaryPageProps) {
   return (
     <section
       id={id}
+      ref={scrollRef}
       className="relative flex h-full flex-col overflow-y-auto overscroll-contain bg-transparent"
     >
       <div className="relative mx-auto flex min-h-full w-full max-w-6xl flex-1 flex-col px-6 py-10 sm:py-14 lg:py-16">

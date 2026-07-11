@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
+import { useState, type FormEvent, type Ref } from 'react'
 import { SecondaryPage, cymCardClassName } from '@/components/secondary-page'
 
 const SUPPORT_LINKS = [
@@ -31,7 +31,11 @@ const INITIAL_FORM: FormState = {
   contact: '',
 }
 
-export function SupportSection() {
+type SupportSectionProps = {
+  scrollRef?: Ref<HTMLElement>
+}
+
+export function SupportSection({ scrollRef }: SupportSectionProps) {
   const [inboxOpen, setInboxOpen] = useState(false)
   const [form, setForm] = useState<FormState>(INITIAL_FORM)
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>(
@@ -98,6 +102,7 @@ export function SupportSection() {
  <SecondaryPage
   id="support"
   label="Support"
+  scrollRef={scrollRef}
   title={
   <>
     <span className="block">Help the next</span>

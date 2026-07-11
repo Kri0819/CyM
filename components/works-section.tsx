@@ -1,3 +1,4 @@
+import type { Ref } from 'react'
 import { SecondaryPage } from '@/components/secondary-page'
 
 const APPS = [
@@ -97,14 +98,16 @@ const APPS = [
 
 type WorksSectionProps = {
   onSupport?: () => void
+  scrollRef?: Ref<HTMLElement>
 }
 
-export function WorksSection({ onSupport }: WorksSectionProps) {
+export function WorksSection({ onSupport, scrollRef }: WorksSectionProps) {
   return (
     <SecondaryPage
       id="works"
       label="Works"
       onSupport={onSupport}
+      scrollRef={scrollRef}
       title={
         <>
           <span className="block">Things I made,</span>

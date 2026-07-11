@@ -12,9 +12,9 @@ type PageView = 'home' | 'works' | 'about' | 'support'
 
 export function HomePage() {
   const [view, setView] = useState<PageView>('home')
-  const worksScrollRef = useRef<HTMLDivElement | null>(null)
-  const aboutScrollRef = useRef<HTMLDivElement | null>(null)
-  const supportScrollRef = useRef<HTMLDivElement | null>(null)
+  const worksScrollRef = useRef<HTMLElement | null>(null)
+  const aboutScrollRef = useRef<HTMLElement | null>(null)
+  const supportScrollRef = useRef<HTMLElement | null>(null)
 
   function handleHome() {
     setView('home')
@@ -70,36 +70,33 @@ export function HomePage() {
         </div>
 
         <div
-          ref={worksScrollRef}
-          className={`absolute inset-0 overflow-y-auto overscroll-contain transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+          className={`absolute inset-0 overflow-hidden transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
             view === 'works'
               ? 'z-20 translate-y-0 pointer-events-auto'
               : 'z-0 translate-y-full pointer-events-none'
           }`}
         >
-          <WorksSection onSupport={handleSupport} />
+          <WorksSection onSupport={handleSupport} scrollRef={worksScrollRef} />
         </div>
 
         <div
-          ref={aboutScrollRef}
-          className={`absolute inset-0 overflow-y-auto overscroll-contain transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+          className={`absolute inset-0 overflow-hidden transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
             view === 'about'
               ? 'z-20 translate-y-0 pointer-events-auto'
               : 'z-0 translate-y-full pointer-events-none'
           }`}
         >
-          <AboutSection onSupport={handleSupport} />
+          <AboutSection onSupport={handleSupport} scrollRef={aboutScrollRef} />
         </div>
 
         <div
-          ref={supportScrollRef}
-          className={`absolute inset-0 overflow-y-auto overscroll-contain transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+          className={`absolute inset-0 overflow-hidden transform-gpu transition-transform duration-[950ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
             view === 'support'
               ? 'z-20 translate-y-0 pointer-events-auto'
               : 'z-0 translate-y-full pointer-events-none'
           }`}
         >
-          <SupportSection />
+          <SupportSection scrollRef={supportScrollRef} />
         </div>
       </div>
 
