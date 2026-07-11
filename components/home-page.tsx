@@ -77,7 +77,7 @@ export function HomePage() {
               : 'z-0 translate-y-full pointer-events-none'
           }`}
         >
-          <WorksSection />
+          <WorksSection onSupport={handleSupport} />
         </div>
 
         <div
@@ -88,7 +88,7 @@ export function HomePage() {
               : 'z-0 translate-y-full pointer-events-none'
           }`}
         >
-          <AboutSection />
+          <AboutSection onSupport={handleSupport} />
         </div>
 
         <div
@@ -103,7 +103,7 @@ export function HomePage() {
         </div>
       </div>
 
-      <SiteFooter onSupport={handleSupport} />
+      {isHome && <SiteFooter onSupport={handleSupport} />}
     </main>
   )
 }

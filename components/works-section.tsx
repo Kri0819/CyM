@@ -95,11 +95,16 @@ const APPS = [
 
 
 
-export function WorksSection() {
+type WorksSectionProps = {
+  onSupport?: () => void
+}
+
+export function WorksSection({ onSupport }: WorksSectionProps) {
   return (
     <SecondaryPage
       id="works"
       label="Works"
+      onSupport={onSupport}
       title={
         <>
           <span className="block">Things I made,</span>

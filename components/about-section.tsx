@@ -1,10 +1,15 @@
 import { SecondaryPage, cymCardClassName } from '@/components/secondary-page'
 
-export function AboutSection() {
+type AboutSectionProps = {
+  onSupport?: () => void
+}
+
+export function AboutSection({ onSupport }: AboutSectionProps) {
   return (
     <SecondaryPage
   id="about"
   label="About"
+  onSupport={onSupport}
   title={
     <>
       <span className="block">Built from the small things</span>

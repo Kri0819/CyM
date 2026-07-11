@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { SiteFooter } from '@/components/site-footer'
 
 type SecondaryPageProps = {
   id: string
@@ -6,6 +7,7 @@ type SecondaryPageProps = {
   title: ReactNode
   description: ReactNode
   children: ReactNode
+  onSupport?: () => void
 }
 
 export const cymCardClassName =
@@ -17,13 +19,14 @@ export function SecondaryPage({
   title,
   description,
   children,
+  onSupport,
 }: SecondaryPageProps) {
   return (
     <section
       id={id}
-      className="relative h-full overflow-y-auto overscroll-contain bg-transparent"
+      className="relative flex h-full flex-col overflow-y-auto overscroll-contain bg-transparent"
     >
-      <div className="relative mx-auto min-h-full max-w-6xl px-6 py-10 sm:py-14 lg:py-16">
+      <div className="relative mx-auto flex min-h-full w-full max-w-6xl flex-1 flex-col px-6 py-10 sm:py-14 lg:py-16">
         <div className="mb-8 sm:mb-10">
           <p className="mb-4 text-xs font-medium uppercase tracking-[0.28em] text-crystal">
             {label}
@@ -40,6 +43,8 @@ export function SecondaryPage({
 
         {children}
       </div>
+
+      <SiteFooter onSupport={onSupport} />
     </section>
   )
 }
