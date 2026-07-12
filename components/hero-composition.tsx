@@ -43,6 +43,8 @@ type Spot = {
   delay: number
   fade: number
   opacity?: number
+  /** Hide this decorative piece once viewport height drops below this value (px). */
+  hideBelow?: number
 }
 
 /**
@@ -62,6 +64,7 @@ const SPOTS: Spot[] = [
     float: 'cym-float',
     delay: 0.3,
     fade: 0.5,
+    hideBelow: 560,
   },
   {
     key: 'draft',
@@ -73,6 +76,7 @@ const SPOTS: Spot[] = [
     delay: 1.9,
     fade: 1.2,
     opacity: 0.58,
+    hideBelow: 720,
   },
 
   // upper-right note
@@ -85,6 +89,7 @@ const SPOTS: Spot[] = [
     float: 'cym-float-slow',
     delay: 1.2,
     fade: 0.65,
+    hideBelow: 560,
   },
 
   // right calendar — pushed outward so it does not sit under the title
@@ -98,6 +103,7 @@ const SPOTS: Spot[] = [
     delay: 0.9,
     fade: 0.8,
     opacity: 0.72,
+    hideBelow: 720,
   },
 
   // central-lower creation artifact — fills the empty hole but stays faint
@@ -111,6 +117,7 @@ const SPOTS: Spot[] = [
     delay: 2.7,
     fade: 1.3,
     opacity: 0.48,
+    hideBelow: 820,
   },
 
   // lower product cluster — closer together, less scattered
@@ -123,6 +130,7 @@ const SPOTS: Spot[] = [
     float: 'cym-float-slow',
     delay: 2.1,
     fade: 0.9,
+    hideBelow: 900,
   },
   {
     key: 'paircare',
@@ -133,6 +141,7 @@ const SPOTS: Spot[] = [
     float: 'cym-float',
     delay: 1.5,
     fade: 1,
+    hideBelow: 900,
   },
   {
     key: 'canwe',
@@ -143,8 +152,16 @@ const SPOTS: Spot[] = [
     float: 'cym-float-slow',
     delay: 2.4,
     fade: 1.1,
+    hideBelow: 900,
   },
 ]
+
+const HIDE_BELOW_CLASS: Record<number, string> = {
+  560: '[@media(max-height:560px)]:hidden',
+  720: '[@media(max-height:720px)]:hidden',
+  820: '[@media(max-height:820px)]:hidden',
+  900: '[@media(max-height:900px)]:hidden',
+}
 
 function floatStyle(delay: number, width: string): CSSProperties {
   return { animationDelay: `${delay}s`, width }
@@ -157,7 +174,9 @@ export function FragmentScatter() {
       {SPOTS.map((spot) => (
         <div
           key={spot.key}
-          className={`${spot.float} absolute ${spot.className}`}
+          className={`${spot.float} absolute ${spot.className} ${
+            spot.hideBelow ? HIDE_BELOW_CLASS[spot.hideBelow] : ''
+          }`}
           style={{ ...floatStyle(spot.delay, spot.width), opacity: spot.opacity }}
         >
           <div className="cym-fade-up" style={{ animationDelay: `${spot.fade}s` }}>
